@@ -3,8 +3,8 @@ package com.amoalla.aoc2022.solutions;
 import com.amoalla.aoc2022.Day;
 
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class Day1_2 extends Day<Integer> {
 
@@ -14,7 +14,7 @@ public class Day1_2 extends Day<Integer> {
 
     @Override
     public Integer process() {
-        Set<Integer> sums = new TreeSet<>(Comparator.reverseOrder());
+        Set<Integer> sums = new HashSet<>();
         int sumCalories = 0;
         for (String line : allLines()) {
             if (line.isEmpty()) {
@@ -26,6 +26,7 @@ public class Day1_2 extends Day<Integer> {
         }
 
         return sums.stream()
+                .sorted(Comparator.reverseOrder())
                 .limit(3)
                 .mapToInt(value -> value)
                 .sum();
