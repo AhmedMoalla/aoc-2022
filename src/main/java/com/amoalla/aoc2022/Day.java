@@ -39,7 +39,7 @@ public abstract class Day<O> {
     }
 
     private InputStream getInputStream() {
-        String inputPath = "inputs/day%d/input.txt".formatted(day);
+        String inputPath = "inputs/input-%d.txt".formatted(day);
         InputStream inputStream = ClassLoader.getSystemResourceAsStream(inputPath);
         if (inputStream == null) {
             throw new RuntimeException("Input file was not found.");
