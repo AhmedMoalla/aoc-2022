@@ -51,8 +51,13 @@ public class Day5_1 extends Day<String> {
     }
 
     private void applyInstructions() {
+        int indexLineAndEmptyLine = 2;
+        int linesToSkip = stacks.stream()
+                .mapToInt(Deque::size)
+                .max()
+                .orElseThrow() + indexLineAndEmptyLine;
         streamLines()
-                .skip(stacks.size() + 1)
+                .skip(linesToSkip)
                 .map(Instruction::parse)
                 .forEach(this::applyInstruction);
     }

@@ -35,7 +35,7 @@ public class Day5_2 extends Day<String> {
 
     private void fillStacks(String line) {
         char[] chars = line.toCharArray();
-        for (int i = 1, stackIndex = 0; i < chars.length; i+=4, stackIndex++) {
+        for (int i = 1, stackIndex = 0; i < chars.length; i += 4, stackIndex++) {
             if (Character.isDigit(chars[i])) {
                 break;
             }
@@ -51,8 +51,13 @@ public class Day5_2 extends Day<String> {
     }
 
     private void applyInstructions() {
+        int indexLineAndEmptyLine = 2;
+        int linesToSkip = stacks.stream()
+                .mapToInt(Deque::size)
+                .max()
+                .orElseThrow() + indexLineAndEmptyLine;
         streamLines()
-                .skip(stacks.size() + 1)
+                .skip(linesToSkip)
                 .map(Instruction::parse)
                 .forEach(this::applyInstruction);
     }

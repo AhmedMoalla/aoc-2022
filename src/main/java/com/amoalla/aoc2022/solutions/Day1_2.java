@@ -25,6 +25,8 @@ public class Day1_2 extends Day<Integer> {
             sumCalories += Integer.parseInt(line);
         }
 
+        sums.add(sumCalories);
+
         return sums.stream()
                 .sorted(Comparator.reverseOrder())
                 .limit(3)

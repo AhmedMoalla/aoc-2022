@@ -22,6 +22,10 @@ public class Day1_1 extends Day<Integer> {
             }
             sumCalories += Integer.parseInt(line);
         }
+
+        if (sumCalories > maxCalories) {
+            maxCalories = sumCalories;
+        }
         return maxCalories;
     }
 }
