@@ -25,7 +25,9 @@ class Tests {
             entry(Day6_1.class, 11),
             entry(Day6_2.class, 26),
             entry(Day7_1.class, 95437),
-            entry(Day7_2.class, 24933642)
+            entry(Day7_2.class, 24933642),
+            entry(Day8_1.class, 21),
+            entry(Day8_2.class, 8)
     );
 
     @Test
@@ -36,6 +38,12 @@ class Tests {
         }
     }
 
+    @Test
+    void test() {
+        var clazz = Day8_2.class;
+        Day day = newDay(clazz);
+        assertEquals(TESTS.get(clazz), day.process(), clazz.getSimpleName());
+    }
     private Day newDay(Class<?> clazz) {
         try {
             return (Day) clazz.getConstructor().newInstance();
