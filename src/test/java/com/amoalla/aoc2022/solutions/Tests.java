@@ -35,6 +35,8 @@ class Tests {
         entry(Day9_1.class, 13);
         entry(Day9_2.class, 1);
         entry(Day10_1.class, 13140);
+        entry(Day11_1.class, 10605);
+        entry(Day11_2.class, 2_713_310_158L);
     }
 
     @Test
